@@ -1,24 +1,27 @@
-import React from "react";
+import React from 'react';
+import Card from 'react-bootstrap/Card';
+import styles from './Business.module.css';
 
 function Business ({business}) {
     return (
         <div>
-            <div>
-                <img src={business.image} alt=""/>
-            </div>
-            <div>
-                <h2>{business.name}</h2>
-                <div>
-                    <p>{business.address}</p>
-                    <p>{business.city}</p>
-                    <p>{`${business.state} ${business.zipcode}`}</p>
-                </div>
-                <div>
-                    <h3>{business.category}</h3>
-                    <h3>{business.rating}</h3>
-                    <p>{business.reviewcount}</p>
-                </div>
-            </div>
+            <Card className={styles.card}>
+                <Card.Img src={business.image} className={styles.restaurantImg}/>
+                <Card.Title className={styles.restaurantName}>{business.name}</Card.Title>
+                <Card.Body className={styles.restaurantInfo}>
+                    <div className={styles.left}>
+                        <Card.Text>{business.address}</Card.Text>
+                        <Card.Text>{business.city}</Card.Text>
+                        <Card.Text>{`${business.state} ${business.zipcode}`}</Card.Text>
+                    </div>
+                    <div className={styles.right}>
+                        <Card.Text className={`${styles.golden} ${styles.uppercase}`}>{business.category}</Card.Text>
+                        <Card.Text className={styles.golden}>{business.rating} stars</Card.Text>
+                        <Card.Text>{business.reviewcount} reviews</Card.Text>
+                    </div>
+                </Card.Body>
+            </Card>
+        
         </div>
     )
 };

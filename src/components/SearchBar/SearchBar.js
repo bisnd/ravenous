@@ -1,24 +1,38 @@
 import React from 'react';
-import styles from "./SearchBar.module.css";
+import Button from 'react-bootstrap/Button';
+import ToggleButton from 'react-bootstrap/ToggleButton';
+import ToggleButtonGroup from 'react-bootstrap/ToggleButtonGroup';
+import styles from './SearchBar.module.css';
 
-const sortBy = {
-    "Best Match": "sort_by=best_match&limit=20",
-    "Highest Rated": "sort_by=rating&limit=20",
-    "Most Reviewed": "sort_by=review_count&limit=20"
-};
+const sortBy = [
+    {"Best Match": "sort_by=best_match&limit=20"},
+    {"Highest Rated": "sort_by=rating&limit=20"},
+    {"Most Reviewed": "sort_by=review_count&limit=20"}
+];
 
 function SearchBar () {
     return (
-        <div>
+        <div className={styles.banner}>
             <div>
-                {Object.keys(sortBy).map((sortOptionName) => ( // First creating an array of the keys/sort options, then mapping through that array to create buttons with each key/sort option. If I then want to access the values, I can still use "sortBy.sortOptionName" or "sortBy[sortOptionName]"
-                    <button>{sortOptionName}</button>
-                ))}
+                <ToggleButtonGroup type="radio" name="sortOptions" defaultValue={0} className={styles.sortGroup}>
+                    {sortBy.map((sortOption, index) => (
+                        <ToggleButton
+                            value={index}
+                            id={`sortOption-${index}`}
+                            variant="outline-light"
+                            className={styles.sortButton}
+                        >
+                            {Object.keys(sortOption)}
+                        </ToggleButton>
+                    ))}
+                </ToggleButtonGroup>
             </div>
             <div>
-                <input placeholder="Search Businesses" />
-                <input placeholder="Where?" />
-                <button>Let's Go</button>
+                <div className={styles.searchSection}>
+                    <input placeholder="Search Businesses" className={styles.searchField}/>
+                    <input placeholder="Where?" className={styles.searchField}/>
+                </div>
+                <Button className={styles.searchButton}>Let's Go</Button>
             </div>
         </div>
     )

@@ -1,0 +1,47 @@
+.banner {
+    background-image: url("/public/zahrin-lukman-FYc-qfATAk4-unsplash.jpg");
+    background-position: top;
+    background-size: cover;
+    padding: 6%;
+    width: 100%;
+}
+
+.sortButton {
+    color: white;
+    font-weight: bold;
+    background-color: transparent;
+    border: 0px;
+    border-radius: 0;
+    padding: 2%;
+}
+
+input[type=radio]:checked+label { /* Only way I found to be able to edit the styling of the button when checked */
+    background-color: transparent !important;
+    color: white !important;
+    border: 0.25px solid;
+    border-bottom: 0;
+
+}
+
+.sortGroup {
+    border-bottom: 1px solid white;
+    border-radius: 0;
+    margin: 2em;
+    min-width: 50%;
+}
+
+.searchField {
+    margin: 1em;
+    padding: 0.5em;
+    width: 30%;
+    border-radius: 5px;
+    border: none;
+}
+
+.searchButton {
+    padding: 0.5em 2em;
+    font-weight: bold;
+    background-color: goldenrod;
+    border: none;
+    border-radius: 3px;
+}

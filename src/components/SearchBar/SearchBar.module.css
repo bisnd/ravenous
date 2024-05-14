@@ -6,29 +6,45 @@
     width: 100%;
 }
 
-.sortButton {
+.sortGroup {
+    margin: 2em;
+    min-width: 50%;
+}
+
+.sortGroup .sortButton {
     color: white;
     font-weight: bold;
-    background-color: transparent;
-    border: 0px;
-    border-radius: 0;
+    background-color: transparent; /* To remove default styling */
+    border: 0px; /* To remove default styling */
+    border-bottom: 1px solid white;
+    border-radius: 0; /* To remove default styling */
     padding: 2%;
 }
 
-input[type=radio]:checked+label { /* Only way I found to be able to edit the styling of the button when checked */
+.sortGroup .sortButton:hover,
+.sortGroup .sortButton:active {
+    background-color: transparent; /* To remove default styling */
+    color: #d4cfcf;
+}
+
+.sortGroup button.active, 
+.sortGroup button.active:hover {
+    background-color: transparent; /* To remove default styling */
+    font-weight: bold; /* To remove default styling */
+    color: goldenrod;
+    border: 0; /* To remove default styling */
+    border-radius: 0; /* To remove default styling */
+    border-bottom: 1px solid goldenrod;
+}
+
+/*
+input[type=radio]:checked+label { /* Only way I found to be able to edit the styling of the button when checked 
     background-color: transparent !important;
     color: white !important;
     border: 0.25px solid;
     border-bottom: 0;
-
 }
-
-.sortGroup {
-    border-bottom: 1px solid white;
-    border-radius: 0;
-    margin: 2em;
-    min-width: 50%;
-}
+*/
 
 .searchField {
     margin: 1em;
